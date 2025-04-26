@@ -3,6 +3,11 @@ import requests
 
 app = Flask(__name__)
 
+# 기본 경로 응답 추가
+@app.route('/', methods=['GET'])
+def home():
+    return "도훈이형 서버 정상 작동 중입니다! 🚀"
+
 # 국토부 API 호출
 @app.route('/get-building-info', methods=['GET'])
 def get_building_info():
@@ -30,3 +35,4 @@ def get_building_info():
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
+
